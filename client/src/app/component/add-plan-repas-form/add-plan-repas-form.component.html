@@ -1,0 +1,37 @@
+<h2 mat-dialog-title align="center">Ajouter un nouveau plan repas</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Choisissez la catégorie du plan repas</mat-label>
+    <input [(ngModel)]="categorie" matInput type="text" maxlength="35" placeholder="Exemple : italien">
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="categorie = ''">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Choisissez la fréquence du plan repas</mat-label>
+    <input [(ngModel)]="frequence" matInput type="text" maxlength="30" placeholder="Exemple : 5">
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Choisissez le nombre de calories du plan repas</mat-label>
+    <input [(ngModel)]="nbrCalories" matInput type="text" maxlength="30" placeholder="Exemple : 700">
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Choisissez le nombre de personnes du plan repas</mat-label>
+    <input [(ngModel)]="nbrPersonnes" matInput type="text" maxlength="30" placeholder="Exemple : 7">
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Choisissez le prix du plan repas</mat-label>
+    <input [(ngModel)]="prix" matInput type="text" maxlength="10" placeholder="Exemple : 57.00">
+    <mat-error *ngIf="prix < 0">Prix invalide</mat-error>
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>sélectionnez le numéro du fournisseur</mat-label>
+    <mat-select [(ngModel)]="numeroFournisseur" >
+        <mat-option *ngFor = "let fournisseur of fournisseurs"  [value]="fournisseur.numerofournisseur">{{fournisseur.numerofournisseur}} (nom : {{fournisseur.nomfournisseur}} / adresse : {{fournisseur.adressefournisseur}}) </mat-option>
+      </mat-select>
+</mat-form-field>
+<div>
+    <button mat-button mat-dialog-close color="primary"
+        *ngIf=" numeroFournisseur && categorie && frequence && nbrPersonnes&& nbrCalories && prix && !isEmpty()"
+        (click)="this.addPlanRepas()">Ajouter</button>
+    <button mat-button mat-dialog-close color="primary">Annuler <mat-icon>clear</mat-icon></button>
+</div>

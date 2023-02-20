@@ -1,0 +1,45 @@
+<h2 *ngIf="!data.update && !data.delete" mat-dialog-title align="center">Résultat de votre insertion</h2>
+<h2 *ngIf="data.update && !data.delete" mat-dialog-title align="center">Résultat de votre modification</h2>
+<h2 *ngIf="!data.update && data.delete" mat-dialog-title align="center">Résultat de votre suppression</h2>
+<div *ngIf="!data.update && !data.delete">
+    <div *ngIf="!data.success">
+        <p>
+            Errur! Impossible d'ajouter le plan repas désiré.
+        </p>
+    </div>
+    <div *ngIf="data.success">
+        <p>
+            Insertion effectuée avec succès !
+        </p>
+    </div>
+</div>
+<div *ngIf="data.update && !data.delete">
+    <div *ngIf="!data.success">
+        <p>
+            Errur! Impossible de modifier le plan repas désiré.
+        </p>
+    </div>
+
+    <div *ngIf="data.success">
+        <p>
+            Modification effectuée avec succès !
+        </p>
+    </div>
+</div>
+<div *ngIf="!data.update && data.delete">
+    <div *ngIf="!data.success">
+        <p>
+            Errur! Impossible de supprimer le plan repas désiré.
+        </p>
+    </div>
+    <div *ngIf="data.success">
+        <p>
+            Suppression effectuée avec succès !
+        </p>
+    </div>
+</div>
+<div align="right">
+    <button mat-button mat-dialog-close color="primary" onClick="window.location.href=window.location.href">Fermer
+        <mat-icon>clear</mat-icon>
+    </button>
+</div>
