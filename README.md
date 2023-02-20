@@ -15,10 +15,10 @@ Authors: Basil Gil, Mehdi Zanina
 - Create a database with the name of your choice and "postgres" as the user.
 - Set the password for "postgres" to "root" (Login/Group Roles -> right-click on "postgres" -> Properties -> Definition).
 - Use the following configuration for the database in VS Code, in the file "database.service.ts", in the "connectionConfig" variable:
-    user: "postgres",
-    database: name of your databae,
-    password: "root",
-    port: 5432,
-    host: "127.0.0.1",
-    keepAlive: true,
+    - user: "postgres",
+    - database: name of your databae,
+    - password: "root",
+    - port: 5432,
+    - host: "127.0.0.1",
+    - keepAlive: true,
 
